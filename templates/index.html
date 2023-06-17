@@ -7,7 +7,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>일론워치</title>
+        {% block link %}
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        {% endblock %}
         <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -88,6 +90,7 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
+                {% block main %}
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">대시보드</h1>
@@ -642,6 +645,7 @@
                         </div>
                     </div>
                 </main>
+                {% endblock %}
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -661,7 +665,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='assets/demo/chart-area-demo.js') }}"></script>
         <script src="{{ url_for('static', filename='assets/demo/chart-bar-demo.js') }}"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script> -->
+        {% block script %}
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        {% endblock %}
         <script src="{{ url_for('static', filename='js/datatables-simple-demo.js') }}"></script>
     </body>
 </html>
